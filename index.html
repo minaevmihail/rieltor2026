@@ -130,7 +130,7 @@
     margin-bottom:40px; padding-bottom:16px; border-bottom:1px solid var(--border);
   }
   .sec-num { font-size:12px; font-weight:700; color:var(--accent); letter-spacing:0.2em; }
-  .sec-title { font-family:'Syne',sans-serif; font-size:28px; font-weight:700; letter-spacing:-0.5px; }
+  .sec-title { font-family:'Syne',sans-serif; font-size:18px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; }
   .sec-hint { color:var(--muted); font-size:14px; margin-bottom:32px; margin-top:-20px; }
 
   /* ══ БЛОК 01: ГЛАВНОЕ ══ */
@@ -163,7 +163,7 @@
     font-family:'Syne',sans-serif; font-size:28px; font-weight:700;
     color:var(--accent); line-height:1; margin-bottom:6px;
   }
-  .stat-label { font-size:12px; color:rgba(245,243,239,0.6); line-height:1.5; }
+  .stat-label { font-size:12px; color:rgba(245,243,239,0.85); line-height:1.5; }
   .stat-source { font-size:11px; color:rgba(245,243,239,0.35); margin-top:4px; }
 
   /* Вывод после статистики */
@@ -309,7 +309,7 @@
   .mkt-cell:hover::after { transform:scaleX(1); }
   .mc-icon { font-size:26px; margin-bottom:10px; display:block; }
   .mc-title { font-family:'Syne',sans-serif; font-size:17px; font-weight:700; margin-bottom:4px; }
-  .mc-tag { font-size:11px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--mc,var(--accent)); margin-bottom:10px; }
+  .mc-tag { font-size:12px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--mc,var(--accent)); margin-bottom:10px; opacity:1; }
   .mc-body { font-size:14px; color:var(--muted); line-height:1.65; }
 
   /* ══ ФИНАЛЬНЫЙ БЛОК ══ */
@@ -458,7 +458,7 @@
   /* ══ ФИНАЛЬНЫЙ CTA ══ */
   .final-cta {
     background:var(--surface); border-top:3px solid var(--accent);
-    padding:80px 48px;
+    padding:80px 48px; overflow:hidden;
   }
   .final-cta-inner {
     max-width:1280px; margin:0 auto;
@@ -470,7 +470,8 @@
     color:var(--text); margin-bottom:18px;
   }
   .final-cta-body {
-    font-size:24px; color:var(--text); line-height:1.75; max-width:640px;
+    font-size:24px; color:var(--text); line-height:1.75;
+    max-width:100%; word-break:break-word;
   }
   .final-cta-text {
     background:var(--bg);
@@ -482,13 +483,14 @@
   .final-cta-btn {
     display:inline-flex; align-items:center; justify-content:center;
     position:relative; overflow:hidden;
-    padding:28px 56px; border-radius:4px;
+    padding:28px 40px; border-radius:4px;
     background:var(--accent);
     color:#fff; font-family:'Syne',sans-serif;
     font-size:15px; font-weight:700; text-decoration:none;
     text-transform:uppercase; letter-spacing:0.1em;
     text-align:center;
-    white-space:nowrap;
+    white-space:normal; word-break:break-word;
+    width:100%; box-sizing:border-box;
     transition:transform 0.2s, box-shadow 0.2s;
     animation:btnPulse 2s ease-in-out infinite;
   }
@@ -515,32 +517,37 @@
   }
 
   @media (max-width:860px) {
-    .final-cta-inner { grid-template-columns:1fr !important; gap:32px !important; }
-    .final-cta { padding:48px 24px; }
-    .final-cta-btn { width:100%; justify-content:center; text-align:center; }
-    .final-cta-lead { font-size:24px; }
-    .final-cta-body { font-size:18px; }
-  }
-
-  @media (max-width:860px) {
+    .final-cta-inner { grid-template-columns:1fr !important; gap:28px !important; }
+    .final-cta { padding:40px 20px; }
+    .final-cta-text { padding:24px 20px; }
+    .final-cta-btn { width:100%; justify-content:center; text-align:center; box-sizing:border-box; padding:22px 16px; font-size:13px; letter-spacing:0.06em; }
+    .final-cta-lead { font-size:20px; }
+    .final-cta-body { font-size:16px; }
     .hook, .roadmap-wrap, .cta-block { grid-template-columns:1fr !important; gap:32px !important; }
     .stats-row, .mkt-tools, .four-grid { grid-template-columns:1fr !important; }
     .sc-cols { grid-template-columns:1fr !important; }
-    .theses-grid, .mkt-principles { grid-template-columns:1fr 1fr !important; }
+    .theses-grid, .mkt-principles { grid-template-columns:1fr !important; }
     .nav-links { display:none; }
-    .hero, .section { padding-left:24px; padding-right:24px; }
-    .divider { margin:0 24px; }
-    .hook { padding:36px 28px; }
-    .cta-block { margin:0 24px; padding:48px 32px; }
+    .hero, .section { padding-left:20px; padding-right:20px; }
+    .divider { margin:0 20px; }
+    .hook { padding:36px 20px; }
+    .cta-block { margin:0 20px; padding:40px 24px; }
     .pb-top, .pb-compare { grid-template-columns:1fr !important; gap:2px !important; }
     .pb-bottom { grid-template-columns:1fr !important; gap:2px !important; }
     .pb-closing { grid-column:span 1 !important; }
-    .pb-inner { padding-left:24px; padding-right:24px; }
-    .hero-title { font-size:26px !important; letter-spacing:-0.5px !important; }
+    .pb-inner { padding-left:20px; padding-right:20px; }
+    .hero-title { font-size:32px !important; letter-spacing:-0.5px !important; line-height:1.1 !important; white-space:normal !important; word-break:break-word !important; }
+    .hero-label { font-size:9px !important; letter-spacing:0.15em !important; }
     .hero { padding-top:130px !important; padding-bottom:48px; }
-    .top-bar { padding:0 24px; }
+    .top-bar { padding:0 20px; }
     .top-bar-author { font-size:10px; }
-    .nav { top:36px; padding-left:24px; padding-right:24px; }
+    .nav { top:36px; padding-left:20px; padding-right:20px; }
+    .footer {
+      flex-direction:column; align-items:flex-start;
+      padding:20px; gap:12px;
+    }
+    .footer-author { flex-wrap:wrap; gap:10px; }
+    .footer-author-name { white-space:normal; }
   }
 
 
@@ -565,11 +572,11 @@
 <nav class="nav">
   <div class="nav-brand">СТРАТЕГИЯ 2026–2030</div>
   <ul class="nav-links">
-    <li><a href="#thesis">Главное</a></li>
+    <li><a href="#thesis">Что изменилось</a></li>
     <li><a href="#segments">Клиенты</a></li>
-    <li><a href="#roadmap">Карта</a></li>
-    <li><a href="#marketing">Маркетинг</a></li>
-    <li><a href="#personal-brand">Бренд</a></li>
+    <li><a href="#roadmap">Путь роста</a></li>
+    <li><a href="#marketing">Инструменты</a></li>
+    <li><a href="#personal-brand">Ваш бренд</a></li>
   </ul>
 </nav>
 
@@ -594,7 +601,7 @@
 <section class="section" id="thesis">
   <div class="sec-header">
     <span class="sec-num">01</span>
-    <h2 class="sec-title">Главное</h2>
+    <h2 class="sec-title">Что изменилось — и что это значит для вас</h2>
   </div>
 
   <div class="hook">
@@ -780,37 +787,37 @@
 <div class="divider"></div>
 
 <!-- ═══ МИНИ-БЛОК: ВОРОНКИ ═══ -->
-<section class="section" style="padding-top:32px;">
+<div style="background:var(--text);">
+<section class="section" style="padding-top:48px; padding-bottom:48px;">
   <div class="sec-header" style="margin-bottom:24px;">
-    <h2 class="sec-title">У каждого сегмента — своя воронка</h2>
+    <h2 class="sec-title" style="color:var(--surface);">У каждого сегмента — своя воронка</h2>
   </div>
-  <p style="font-size:16px;color:var(--muted);line-height:1.8;max-width:720px;margin-bottom:32px;">Ошибка большинства риэлторов — работать со всеми клиентами одинаково. Но бюджетный покупатель и инвестор принимают решение по-разному, в разном темпе и через разные точки доверия. Эффективная стратегия строит отдельный путь для каждого сегмента: от первого касания — через прогрев — к сделке. Чем точнее выстроен этот путь, тем короче цикл и выше конверсия.</p>
+  <p style="font-size:16px;color:rgba(245,243,239,0.55);line-height:1.8;max-width:720px;margin-bottom:32px;">Ошибка большинства риэлторов — работать со всеми клиентами одинаково. Но бюджетный покупатель и инвестор принимают решение по-разному, в разном темпе и через разные точки доверия. Эффективная стратегия строит отдельный путь для каждого сегмента: от первого касания — через прогрев — к сделке. Чем точнее выстроен этот путь, тем короче цикл и выше конверсия.</p>
   <div class="theses-grid" style="grid-template-columns:repeat(3,1fr)">
-    <div class="thesis-card" style="--tc:var(--accent)">
-      <div class="t-num">Бюджетный сегмент</div>
-      <div class="t-head">Скорость и автоматизация</div>
-      <div class="t-body">Быстрая квалификация, понятный оффер, минимум ручной работы. Воронка должна фильтровать нерелевантных до первого звонка.</div>
+    <div class="thesis-card" style="--tc:var(--accent); background:#2a2620;">
+      <div class="t-num" style="color:var(--accent);">Бюджетный сегмент</div>
+      <div class="t-head" style="color:var(--surface);">Скорость и автоматизация</div>
+      <div class="t-body" style="color:rgba(245,243,239,0.85);">Быстрая квалификация, понятный оффер, минимум ручной работы. Воронка должна фильтровать нерелевантных до первого звонка.</div>
     </div>
-    <div class="thesis-card" style="--tc:var(--a2)">
-      <div class="t-num">Средний класс · Инвесторы</div>
-      <div class="t-head">Прогрев через экспертность</div>
-      <div class="t-body">Контент, кейсы, аналитика формируют доверие до первого контакта. Клиент приходит уже подготовленным — цикл сделки короче.</div>
+    <div class="thesis-card" style="--tc:var(--a2); background:#2a2620;">
+      <div class="t-num" style="color:var(--a2);">Средний класс · Инвесторы</div>
+      <div class="t-head" style="color:var(--surface);">Прогрев через экспертность</div>
+      <div class="t-body" style="color:rgba(245,243,239,0.85);">Контент, кейсы, аналитика формируют доверие до первого контакта. Клиент приходит уже подготовленным — цикл сделки короче.</div>
     </div>
-    <div class="thesis-card" style="--tc:var(--a3)">
-      <div class="t-num">Премиум · Крупный капитал</div>
-      <div class="t-head">Репутация и среда</div>
-      <div class="t-body">Воронка начинается задолго до сделки и строится через личные связи и рекомендации. Реклама не работает — работает присутствие в нужном кругу.</div>
+    <div class="thesis-card" style="--tc:var(--a3); background:#2a2620;">
+      <div class="t-num" style="color:var(--a3);">Премиум · Крупный капитал</div>
+      <div class="t-head" style="color:var(--surface);">Репутация и среда</div>
+      <div class="t-body" style="color:rgba(245,243,239,0.85);">Воронка начинается задолго до сделки и строится через личные связи и рекомендации. Реклама не работает — работает присутствие в нужном кругу.</div>
     </div>
   </div>
 </section>
-
-<div class="divider"></div>
+</div>
 
 <!-- ═══ 03: ДОРОЖНАЯ КАРТА ═══ -->
 <section class="section" id="roadmap">
   <div class="sec-header">
     <span class="sec-num">03</span>
-    <h2 class="sec-title">Дорожная карта</h2>
+    <h2 class="sec-title">Путь вашего роста</h2>
   </div>
 
   <div class="roadmap-wrap">
@@ -847,66 +854,66 @@
 <div class="divider"></div>
 
 <!-- ═══ 04: МАРКЕТИНГ ═══ -->
-<section class="section" id="marketing">
+<div style="background:var(--text);">
+<section class="section" id="marketing" style="padding-top:48px; padding-bottom:48px;">
   <div class="sec-header">
     <span class="sec-num">04</span>
-    <h2 class="sec-title">Маркетинг: с чего начать и что делать</h2>
+    <h2 class="sec-title" style="color:var(--surface);">Инструменты вашего роста</h2>
   </div>
 
-  <div class="mkt-tools">
-    <div class="mkt-cell" style="--mc:var(--a5)">
+  <div class="mkt-tools" style="background:#333028;">
+    <div class="mkt-cell" style="--mc:var(--a5); background:#2a2620;">
       <span class="mc-icon">&#127775;</span>
-      <div class="mc-title">Личный бренд и образ</div>
+      <div class="mc-title" style="color:var(--surface);">Личный бренд и образ</div>
       <div class="mc-tag">Основа всего</div>
-      <div class="mc-body">Узнаваемое лицо, стиль общения и чёткая позиция эксперта — это не про пиар. Это то, как вас <strong>запоминают, рекомендуют и выбирают</strong> без сравнения с конкурентами. Строится один раз — работает годами. Всё это живёт онлайн — в профиле, на сайте, в контенте. <strong>Грамотное цифровое присутствие усиливает образ и работает на вас круглосуточно.</strong></div>
+      <div class="mc-body" style="color:rgba(245,243,239,0.85);">Узнаваемое лицо, стиль общения и чёткая позиция эксперта — это не про пиар. Это то, как вас <strong style="color:var(--surface);">запоминают, рекомендуют и выбирают</strong> без сравнения с конкурентами. Строится один раз — работает годами. Всё это живёт онлайн — в профиле, на сайте, в контенте. <strong style="color:var(--surface);">Грамотное цифровое присутствие усиливает образ и работает на вас круглосуточно.</strong></div>
     </div>
-    <div class="mkt-cell" style="--mc:var(--a3)">
+    <div class="mkt-cell" style="--mc:var(--a3); background:#2a2620;">
       <span class="mc-icon">&#128241;</span>
-      <div class="mc-title">Понятный экспертный контент</div>
+      <div class="mc-title" style="color:var(--surface);">Понятный экспертный контент</div>
       <div class="mc-tag">Доверие и охват</div>
-      <div class="mc-body">Не продавать квартиры — объяснять рынок. Разборы рисков, аналитика, ответы на страхи клиентов. <strong>Люди доверяют тем, кто учит</strong>, а не тем, кто давит на сделку.</div>
+      <div class="mc-body" style="color:rgba(245,243,239,0.85);">Не продавать квартиры — объяснять рынок. Разборы рисков, аналитика, ответы на страхи клиентов. <strong style="color:var(--surface);">Люди доверяют тем, кто учит</strong>, а не тем, кто давит на сделку.</div>
     </div>
-    <div class="mkt-cell" style="--mc:var(--a3)">
+    <div class="mkt-cell" style="--mc:var(--a3); background:#2a2620;">
       <span class="mc-icon">&#127909;</span>
-      <div class="mc-title">Видеоконтент</div>
+      <div class="mc-title" style="color:var(--surface);">Видеоконтент</div>
       <div class="mc-tag">Узнаваемость</div>
-      <div class="mc-body">Видео продаёт экспертность быстрее текста. Разбор объектов, рынок недели, живые ответы — <strong>формируют узнаваемость и доверие</strong> одновременно.</div>
+      <div class="mc-body" style="color:rgba(245,243,239,0.85);">Видео продаёт экспертность быстрее текста. Разбор объектов, рынок недели, живые ответы — <strong style="color:var(--surface);">формируют узнаваемость и доверие</strong> одновременно.</div>
     </div>
-    <div class="mkt-cell" style="--mc:var(--a2)">
+    <div class="mkt-cell" style="--mc:var(--a2); background:#2a2620;">
       <span class="mc-icon">&#127919;</span>
-      <div class="mc-title">Фокус на своём районе</div>
+      <div class="mc-title" style="color:var(--surface);">Фокус на своём районе</div>
       <div class="mc-tag">Локальная экспертность</div>
-      <div class="mc-body">Быть <strong>лучшим в конкретном районе</strong> важнее, чем быть видимым везде. Кейсы, отзывы, присутствие — это работает лучше широкого охвата.</div>
+      <div class="mc-body" style="color:rgba(245,243,239,0.85);">Быть <strong style="color:var(--surface);">лучшим в конкретном районе</strong> важнее, чем быть видимым везде. Кейсы, отзывы, присутствие — это работает лучше широкого охвата.</div>
     </div>
-    <div class="mkt-cell" style="--mc:var(--a4)">
+    <div class="mkt-cell" style="--mc:var(--a4); background:#2a2620;">
       <span class="mc-icon">&#9881;</span>
-      <div class="mc-title">Автоматизация процессов</div>
+      <div class="mc-title" style="color:var(--surface);">Автоматизация процессов</div>
       <div class="mc-tag">Система вместо хаоса</div>
-      <div class="mc-body">Для бюджетного сегмента нужна машина, а не ручная работа. <strong>Отбор клиентов до первого звонка</strong> — иначе тонете в нерелевантных заявках и теряете самое ценное: время.</div>
+      <div class="mc-body" style="color:rgba(245,243,239,0.85);">Для бюджетного сегмента нужна машина, а не ручная работа. <strong style="color:var(--surface);">Отбор клиентов до первого звонка</strong> — иначе тонете в нерелевантных заявках и теряете самое ценное: время.</div>
     </div>
-    <div class="mkt-cell" style="--mc:var(--a2)">
+    <div class="mkt-cell" style="--mc:var(--a2); background:#2a2620;">
       <span class="mc-icon">&#128257;</span>
-      <div class="mc-title">Работа с базой</div>
+      <div class="mc-title" style="color:var(--surface);">Работа с базой</div>
       <div class="mc-tag">Деньги которые уже рядом</div>
-      <div class="mc-body">Большинство риэлторов гонятся за новыми клиентами и забывают о тех, кто уже знает их. Люди, которые однажды обращались — это тёплый актив. <strong>Системная работа с базой даёт повторные обращения без затрат на привлечение.</strong></div>
+      <div class="mc-body" style="color:rgba(245,243,239,0.85);">Большинство риэлторов гонятся за новыми клиентами и забывают о тех, кто уже знает их. Люди, которые однажды обращались — это тёплый актив. <strong style="color:var(--surface);">Системная работа с базой даёт повторные обращения без затрат на привлечение.</strong></div>
     </div>
-    <div class="mkt-cell" style="--mc:var(--accent)">
+    <div class="mkt-cell" style="--mc:var(--accent); background:#2a2620;">
       <span class="mc-icon">&#129309;</span>
-      <div class="mc-title">Доверие через публичность</div>
+      <div class="mc-title" style="color:var(--surface);">Доверие через публичность</div>
       <div class="mc-tag">Репутация</div>
-      <div class="mc-body">Нетворкинг, закрытые встречи, рекомендации внутри круга. <strong>Для премиума реклама не работает</strong> — работает присутствие в нужной среде и личные связи.</div>
+      <div class="mc-body" style="color:rgba(245,243,239,0.85);">Нетворкинг, закрытые встречи, рекомендации внутри круга. <strong style="color:var(--surface);">Для премиума реклама не работает</strong> — работает присутствие в нужной среде и личные связи.</div>
     </div>
   </div>
 </section>
-
-<div class="divider"></div>
+</div>
 
 <!-- ═══ 05: ЛИЧНЫЙ БРЕНД ═══ -->
 <div class="pb-block" id="personal-brand">
 <div class="pb-inner">
   <div class="sec-header">
     <span class="sec-num">05</span>
-    <h2 class="sec-title">Личный бренд</h2>
+    <h2 class="sec-title">Ваш личный бренд</h2>
   </div>
 
   <div class="pb-top">
